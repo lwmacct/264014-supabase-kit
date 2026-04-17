@@ -1,0 +1,17 @@
+.git
+.github
+node_modules
+npm-debug.log*
+.env
+.env.*
+!.env.example
+src
+supabase
+.artifacts
+Taskfile.yml
+tsconfig.json
+tsconfig.node.json
+vite.config.ts
+index.html
+package-lock.json
+package.json
