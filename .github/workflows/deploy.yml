@@ -55,9 +55,13 @@ jobs:
         env:
           APP_VERSION: ${{ needs.meta.outputs.app_version }}
           VITE_APP_VERSION: ${{ needs.meta.outputs.app_version }}
+          VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_ANON_KEY: ${{ vars.VITE_SUPABASE_ANON_KEY }}
           GIT_COMMIT: ${{ needs.meta.outputs.git_commit }}
           BUILD_TIME: ${{ needs.meta.outputs.build_time }}
         run: |
+          test -n "${VITE_SUPABASE_URL}"
+          test -n "${VITE_SUPABASE_ANON_KEY}"
           npm ci
           npm run build
 

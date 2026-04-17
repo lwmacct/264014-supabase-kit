@@ -10,11 +10,4 @@ interface ImportMeta {
   readonly env: ImportMetaEnv;
 }
 
-interface Window {
-  __APP_CONFIG?: {
-    VITE_SUPABASE_URL?: string;
-    VITE_SUPABASE_ANON_KEY?: string;
-  };
-}
-
 declare module "*.css";

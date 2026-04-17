@@ -1,24 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 
-function normalize(value: string | undefined) {
-  return value?.trim() ?? "";
-}
-
-function getRuntimeConfig() {
-  if (typeof window === "undefined") {
-    return undefined;
-  }
-
-  return window.__APP_CONFIG;
-}
-
-const runtimeConfig = getRuntimeConfig();
-const supabaseUrl =
-  normalize(runtimeConfig?.VITE_SUPABASE_URL) ||
-  normalize(import.meta.env.VITE_SUPABASE_URL);
-const supabaseAnonKey =
-  normalize(runtimeConfig?.VITE_SUPABASE_ANON_KEY) ||
-  normalize(import.meta.env.VITE_SUPABASE_ANON_KEY);
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL?.trim() ?? "";
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY?.trim() ?? "";
 
 export const isSupabaseConfigured = Boolean(supabaseUrl && supabaseAnonKey);
 
