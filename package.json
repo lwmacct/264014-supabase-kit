@@ -1,7 +1,7 @@
 {
   "name": "supabase-starter-console",
   "private": true,
-  "version": "0.2.260416",
+  "version": "0.3.260417",
   "type": "module",
   "scripts": {
     "dev": "vite",
