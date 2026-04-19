@@ -1,0 +1,552 @@
+.app-layout {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.cf-shell {
+  --shell-sidebar-width: 272px;
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--shell-sidebar-width) minmax(0, 1fr);
+  background: var(--shell-bg);
+}
+
+.cf-shell-mask {
+  display: none;
+}
+
+.cf-sidebar {
+  position: sticky;
+  top: 0;
+  width: var(--shell-sidebar-width);
+  height: 100vh;
+  border-right: 1px solid var(--shell-line);
+  background: linear-gradient(180deg, var(--shell-panel-soft), var(--shell-panel));
+  backdrop-filter: blur(14px);
+}
+
+.cf-sidebar-shell {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding:
+    calc(18px + env(safe-area-inset-top, 0px))
+    calc(14px + env(safe-area-inset-right, 0px))
+    calc(16px + env(safe-area-inset-bottom, 0px))
+    calc(14px + env(safe-area-inset-left, 0px));
+}
+
+.cf-brand {
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 8px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.cf-brand-mark {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 11px;
+  background: linear-gradient(180deg, #8b3f1f 0%, var(--shell-orange) 100%);
+  color: var(--shell-orange-contrast);
+  box-shadow: 0 10px 24px var(--shell-glow);
+  font-size: 18px;
+}
+
+.cf-brand-copy {
+  display: flex;
+  align-items: center;
+  min-height: 34px;
+}
+
+.cf-brand-copy strong {
+  font-size: 15px;
+  line-height: 1.1;
+  color: var(--shell-ink);
+}
+
+.cf-sidebar-nav {
+  min-height: 0;
+  flex: 1 1 auto;
+  overflow: auto;
+}
+
+.cf-sidebar-nav .ant-menu {
+  background: transparent;
+  border-inline-end: none;
+}
+
+.cf-sidebar-nav .ant-menu-item-group-title {
+  padding: 8px 12px 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--shell-ink-dim);
+}
+
+.cf-sidebar-nav .ant-menu-item {
+  width: calc(100% - 8px);
+  margin: 4px;
+  height: 42px;
+  line-height: 42px;
+  border-radius: 12px;
+  position: relative;
+  color: var(--shell-ink-soft);
+  transition:
+    background-color 0.18s ease,
+    box-shadow 0.18s ease,
+    color 0.18s ease,
+    transform 0.18s ease;
+}
+
+.cf-sidebar-nav .ant-menu-item:hover {
+  background: color-mix(in srgb, var(--shell-orange-soft) 48%, transparent);
+  color: var(--shell-ink);
+  transform: translateX(1px);
+}
+
+.cf-sidebar-nav .ant-menu-item-selected {
+  background: var(--shell-orange-soft);
+  box-shadow: var(--shell-shadow);
+  color: var(--shell-ink) !important;
+  font-weight: 600;
+}
+
+.cf-sidebar-nav .ant-menu-item-selected::before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  bottom: 10px;
+  width: 3px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--shell-orange) 0%, var(--shell-orange-strong) 100%);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--shell-orange) 18%, transparent);
+}
+
+.cf-sidebar-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cf-sidebar-utility {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 36px;
+}
+
+.cf-build-badge {
+  min-width: 0;
+  padding: 0 10px;
+  border: 1px solid var(--shell-line);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--shell-panel-soft) 88%, transparent);
+  color: var(--shell-ink-dim);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 26px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.cf-main {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.cf-mobilebar {
+  display: none;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  grid-template-columns: 44px minmax(0, 1fr) 44px;
+  align-items: center;
+  gap: 12px;
+  min-height: 60px;
+  padding:
+    calc(8px + env(safe-area-inset-top, 0px))
+    calc(20px + env(safe-area-inset-right, 0px))
+    8px
+    calc(20px + env(safe-area-inset-left, 0px));
+  border-bottom: 1px solid var(--shell-line);
+  background: var(--shell-panel-overlay);
+  backdrop-filter: blur(18px);
+}
+
+.cf-mobilebar-menu.ant-btn,
+.cf-mobilebar-account.ant-btn {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 16px;
+  border-color: var(--shell-line);
+  background: var(--shell-panel-soft);
+  box-shadow: var(--shell-shadow);
+  transition:
+    transform 0.16s ease,
+    box-shadow 0.16s ease,
+    border-color 0.16s ease,
+    background-color 0.16s ease;
+}
+
+.cf-mobilebar-title {
+  min-width: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--shell-ink);
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.theme-toggle-button.ant-btn {
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 1px solid var(--shell-line);
+  border-radius: 12px;
+  background: linear-gradient(180deg, var(--shell-panel-soft), var(--shell-panel));
+  color: var(--shell-ink);
+  box-shadow: var(--shell-shadow);
+  transition:
+    transform 0.16s ease,
+    box-shadow 0.16s ease,
+    border-color 0.16s ease,
+    background-color 0.16s ease,
+    color 0.16s ease;
+}
+
+.theme-toggle-button.ant-btn.is-dark {
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--shell-orange-soft) 92%, #161b23), #171b22);
+  color: #ffd7a7;
+  border-color: color-mix(in srgb, var(--shell-orange-strong) 26%, var(--shell-line));
+}
+
+.theme-toggle-button.ant-btn.is-light {
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--shell-orange-soft) 90%, #fff8ef), #fff5e7);
+  color: var(--shell-orange-strong);
+  border-color: color-mix(in srgb, var(--shell-orange) 24%, var(--shell-line));
+}
+
+.cf-account-card.ant-btn {
+  width: 100%;
+  height: auto;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-radius: 18px;
+  border-color: var(--shell-line);
+  background:
+    linear-gradient(180deg, var(--shell-panel-soft), var(--shell-panel));
+  box-shadow: var(--shell-shadow);
+  transition:
+    transform 0.16s ease,
+    box-shadow 0.16s ease,
+    border-color 0.16s ease,
+    background-color 0.16s ease;
+}
+
+.cf-account-card.ant-btn:hover,
+.cf-account-card.ant-btn:focus,
+.cf-account-card.ant-btn:active,
+.cf-mobilebar-menu.ant-btn:hover,
+.cf-mobilebar-menu.ant-btn:focus,
+.cf-mobilebar-menu.ant-btn:active,
+.cf-mobilebar-account.ant-btn:hover,
+.cf-mobilebar-account.ant-btn:focus,
+.cf-mobilebar-account.ant-btn:active {
+  border-color: var(--shell-line-strong) !important;
+  background:
+    linear-gradient(180deg, var(--shell-panel-overlay), var(--shell-panel-soft)) !important;
+  color: inherit !important;
+}
+
+.cf-account-card.ant-btn:hover,
+.cf-mobilebar-menu.ant-btn:hover,
+.cf-mobilebar-account.ant-btn:hover,
+.theme-toggle-button.ant-btn:hover,
+.theme-toggle-button.ant-btn:focus {
+  transform: translateY(-1px);
+  border-color: var(--shell-line-strong) !important;
+  background:
+    linear-gradient(180deg, var(--shell-panel-overlay), var(--shell-panel-soft)) !important;
+  color: var(--shell-ink) !important;
+}
+
+.cf-account-card.ant-btn:active,
+.cf-mobilebar-menu.ant-btn:active,
+.cf-mobilebar-account.ant-btn:active,
+.theme-toggle-button.ant-btn:active {
+  transform: translateY(0);
+}
+
+.cf-auth-avatar.ant-avatar {
+  background: var(--shell-neutral-chip-bg);
+  color: var(--shell-neutral-chip-text);
+}
+
+.cf-auth-avatar.ant-avatar.is-success {
+  background: var(--shell-success-soft);
+  color: var(--shell-success-ink);
+}
+
+.cf-auth-avatar.ant-avatar.is-warning {
+  background: var(--shell-warning-soft);
+  color: var(--shell-warning-ink);
+}
+
+.cf-auth-avatar.ant-avatar.is-neutral {
+  background: var(--shell-orange-soft);
+  color: var(--shell-orange-strong);
+}
+
+.cf-account-card-main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.cf-account-card-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  text-align: left;
+}
+
+.cf-account-card-copy strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 13px;
+  color: var(--shell-ink);
+}
+
+.cf-account-card-copy span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 12px;
+  color: var(--shell-ink-dim);
+}
+
+.cf-auth-menu-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.cf-auth-menu-meta strong {
+  font-size: 12px;
+  color: var(--shell-ink);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cf-auth-menu-meta span {
+  font-size: 11px;
+  color: var(--shell-ink-dim);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cf-auth-popover .ant-popover-inner {
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--shell-line);
+  border-radius: 24px;
+  background: linear-gradient(180deg, var(--shell-panel-soft), var(--shell-panel));
+  box-shadow: var(--shell-shadow);
+}
+
+.cf-auth-popover .ant-popover-inner-content {
+  padding: 0;
+}
+
+.cf-auth-panel-menu {
+  width: 224px;
+}
+
+.cf-auth-panel-summary {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border: 0;
+  border-bottom: 1px solid var(--shell-line);
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.16s ease;
+}
+
+.cf-auth-panel-summary:hover,
+.cf-auth-panel-summary:focus {
+  background: var(--shell-panel-muted);
+  outline: none;
+}
+
+.cf-auth-panel-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px;
+}
+
+.cf-auth-panel-arrow {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--shell-ink-dim);
+}
+
+.cf-auth-panel-action.ant-btn {
+  justify-content: flex-start;
+  height: 38px;
+  border-radius: 12px;
+  padding-inline: 10px;
+  color: var(--shell-ink);
+  transition:
+    background-color 0.16s ease,
+    color 0.16s ease,
+    transform 0.16s ease;
+}
+
+.cf-auth-panel-action.ant-btn:hover,
+.cf-auth-panel-action.ant-btn:focus {
+  background: var(--shell-orange-soft) !important;
+  color: var(--shell-ink) !important;
+  transform: translateX(1px);
+}
+
+.cf-auth-panel-action.is-danger.ant-btn:hover,
+.cf-auth-panel-action.is-danger.ant-btn:focus {
+  background: var(--shell-error-soft) !important;
+  color: var(--shell-error-ink) !important;
+}
+
+.cf-auth-trigger-arrow {
+  font-size: 11px;
+  color: var(--shell-ink-dim);
+}
+
+.cf-content {
+  padding: 28px;
+}
+
+.cf-content .ant-card {
+  border-color: var(--shell-line);
+  border-radius: 20px;
+  box-shadow: var(--shell-shadow);
+  background: linear-gradient(180deg, var(--shell-panel-card-start), var(--shell-panel-card-end));
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    transform 0.18s ease,
+    background-color 0.18s ease;
+}
+
+.cf-content .ant-card:hover {
+  border-color: var(--shell-line-strong);
+  box-shadow:
+    0 22px 44px color-mix(in srgb, var(--shell-glow-soft) 64%, transparent),
+    var(--shell-shadow);
+  transform: translateY(-1px);
+}
+
+.cf-content .ant-btn-primary {
+  border: none;
+  background: linear-gradient(180deg, var(--shell-orange) 0%, var(--shell-orange-strong) 100%);
+  box-shadow: 0 10px 20px var(--shell-glow);
+}
+
+.cf-content .ant-btn-default {
+  border-color: var(--shell-line-strong);
+  background: var(--shell-panel-soft);
+}
+
+@media (max-width: 1080px) {
+  .cf-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .cf-shell-mask {
+    position: fixed;
+    inset: 0;
+    display: block;
+    border: 0;
+    padding: 0;
+    background: color-mix(in srgb, #08111f 54%, transparent);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    z-index: 24;
+  }
+
+  .cf-shell[data-nav-open="true"] .cf-shell-mask {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .cf-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: min(304px, calc(100vw - 24px));
+    max-width: calc(100vw - 24px);
+    height: 100dvh;
+    z-index: 30;
+    box-shadow:
+      0 24px 64px color-mix(in srgb, var(--shell-glow-soft) 28%, transparent),
+      var(--shell-shadow);
+    transform: translateX(calc(-100% - 16px));
+    transition: transform 0.22s ease;
+  }
+
+  .cf-shell[data-nav-open="true"] .cf-sidebar {
+    transform: translateX(0);
+  }
+
+  .cf-mobilebar {
+    display: grid;
+  }
+}
+
+@media (max-width: 768px) {
+  .cf-mobilebar,
+  .cf-content {
+    padding-left: calc(18px + env(safe-area-inset-left, 0px));
+    padding-right: calc(18px + env(safe-area-inset-right, 0px));
+  }
+
+  .cf-content {
+    padding-top: 18px;
+    padding-bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+  }
+}

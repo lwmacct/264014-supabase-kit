@@ -1,0 +1,128 @@
+.profile-avatar.ant-avatar {
+  background: var(--shell-orange-soft);
+  color: var(--shell-orange-strong);
+}
+
+.account-hero.ant-card .ant-card-body {
+  padding: 18px 20px;
+}
+
+.account-hero .ant-space {
+  gap: 10px !important;
+}
+
+.account-hero .ant-typography {
+  margin-bottom: 0;
+}
+
+.account-hero .ant-typography.ant-typography-h4 {
+  font-size: clamp(1.5rem, 4.5vw, 1.9rem);
+  line-height: 1.2;
+}
+
+.account-hero .ant-typography + .ant-typography {
+  max-width: 680px;
+  color: var(--shell-ink-soft);
+  line-height: 1.6;
+}
+
+.account-summary-card .ant-card-head,
+.account-form-card .ant-card-head {
+  min-height: 60px;
+  padding-inline: 22px;
+}
+
+.account-summary-card .ant-card-head-title,
+.account-form-card .ant-card-head-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.account-summary-card .ant-card-extra,
+.account-form-card .ant-card-extra {
+  padding-inline-start: 12px;
+}
+
+.account-summary-card .ant-card-body,
+.account-form-card .ant-card-body {
+  padding: 22px;
+}
+
+.account-profile-head {
+  align-items: center;
+}
+
+.account-profile-meta {
+  min-width: 0;
+  flex: 1 1 180px;
+}
+
+.account-profile-meta .ant-typography {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.account-summary-card .ant-descriptions-item-label {
+  width: 84px;
+  color: var(--shell-ink-dim);
+}
+
+.account-summary-card .ant-descriptions-item-content {
+  color: var(--shell-ink);
+}
+
+.account-refresh-button.ant-btn {
+  min-width: 84px;
+}
+
+.account-form .ant-form-item {
+  margin-bottom: 18px;
+}
+
+.account-form-note {
+  margin-bottom: 18px;
+  max-width: 48rem;
+}
+
+.account-form-actions {
+  width: 100%;
+}
+
+.account-form-actions .ant-btn {
+  min-width: 112px;
+}
+
+@media (max-width: 768px) {
+  .account-summary-card .ant-card-head,
+  .account-form-card .ant-card-head {
+    min-height: 54px;
+    padding-inline: 16px;
+  }
+
+  .account-summary-card .ant-card-body,
+  .account-form-card .ant-card-body {
+    padding: 16px;
+  }
+
+  .account-profile-head {
+    gap: 14px !important;
+  }
+
+  .account-refresh-button.ant-btn {
+    min-width: auto;
+    padding-inline: 12px;
+  }
+
+  .account-form .ant-form-item {
+    margin-bottom: 14px;
+  }
+
+  .account-form-actions {
+    gap: 10px !important;
+  }
+
+  .account-form-actions .ant-btn {
+    flex: 1 1 calc(50% - 5px);
+    min-width: 0;
+  }
+}

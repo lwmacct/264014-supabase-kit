@@ -1,0 +1,79 @@
+.public-layout {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding:
+    calc(20px + env(safe-area-inset-top, 0px))
+    calc(20px + env(safe-area-inset-right, 0px))
+    calc(40px + env(safe-area-inset-bottom, 0px))
+    calc(20px + env(safe-area-inset-left, 0px));
+  background-color: var(--shell-public-bg-color);
+  background-image: var(--shell-public-bg-image);
+  background-repeat: no-repeat;
+  background-size: cover;
+  isolation: isolate;
+}
+
+.public-layout.is-centered {
+  display: grid;
+}
+
+.public-layout-backdrop {
+  position: absolute;
+  inset: 0;
+  overflow: clip;
+  pointer-events: none;
+}
+
+.public-layout-orb {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(18px);
+  opacity: 0.9;
+}
+
+.public-layout-orb.is-primary {
+  top: 72px;
+  left: max(-40px, -4vw);
+  width: min(320px, 34vw);
+  height: min(320px, 34vw);
+  background: color-mix(in srgb, var(--shell-orange-soft) 88%, transparent);
+}
+
+.public-layout-orb.is-secondary {
+  right: max(-28px, -2vw);
+  bottom: 84px;
+  width: min(280px, 28vw);
+  height: min(280px, 28vw);
+  background: color-mix(in srgb, var(--shell-panel-overlay) 72%, transparent);
+}
+
+.public-layout-body {
+  position: relative;
+  z-index: 1;
+  width: min(1120px, 100%);
+  margin: 0 auto;
+}
+
+.public-layout.is-centered .public-layout-body {
+  width: 100%;
+  min-height: calc(100vh - 60px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+  min-height: calc(100dvh - 60px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+  display: grid;
+  place-items: center;
+}
+
+@media (max-width: 768px) {
+  .public-layout {
+    padding:
+      calc(14px + env(safe-area-inset-top, 0px))
+      calc(14px + env(safe-area-inset-right, 0px))
+      calc(28px + env(safe-area-inset-bottom, 0px))
+      calc(14px + env(safe-area-inset-left, 0px));
+  }
+
+  .public-layout.is-centered .public-layout-body {
+    min-height: calc(100vh - 42px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+    min-height: calc(100dvh - 42px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+  }
+}

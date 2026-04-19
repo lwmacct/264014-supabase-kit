@@ -1,0 +1,83 @@
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+html,
+body {
+  background-color: var(--viewport-bg-color, var(--app-body-bg-color));
+  background-image: var(--viewport-bg-image, var(--app-body-bg-image));
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+:root {
+  --app-body-bg-color: #f4f6f8;
+  --app-body-bg-image:
+    radial-gradient(circle at top left, rgba(244, 129, 32, 0.08), transparent 18%),
+    linear-gradient(180deg, #fbfbfc 0%, #f4f6f8 100%);
+  --shell-bg: #f6f7f9;
+  --shell-panel: #ffffff;
+  --shell-panel-muted: #fbfbfc;
+  --shell-panel-soft: rgba(255, 255, 255, 0.96);
+  --shell-panel-overlay: rgba(250, 250, 251, 0.88);
+  --shell-panel-card-start: #ffffff;
+  --shell-panel-card-end: #fcfcfd;
+  --shell-line: #e6e8eb;
+  --shell-line-strong: #d7dbe0;
+  --shell-ink: #16181d;
+  --shell-ink-soft: #5f6673;
+  --shell-ink-dim: #8d94a3;
+  --shell-orange: #f48120;
+  --shell-orange-strong: #a95217;
+  --shell-orange-soft: rgba(244, 129, 32, 0.12);
+  --shell-orange-contrast: #ffffff;
+  --shell-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
+  --shell-glow: rgba(244, 129, 32, 0.18);
+  --shell-glow-soft: rgba(244, 129, 32, 0.08);
+  --shell-neutral-chip-bg: #f2f4f7;
+  --shell-neutral-chip-text: #4e5564;
+  --shell-success-soft: rgba(22, 163, 74, 0.1);
+  --shell-success-ink: #15803d;
+  --shell-warning-soft: rgba(245, 158, 11, 0.14);
+  --shell-warning-ink: #b45309;
+  --shell-error-soft: rgba(220, 38, 38, 0.12);
+  --shell-error-ink: #b91c1c;
+  --shell-badge-bg: rgba(255, 255, 255, 0.8);
+  --shell-public-ink: #16181d;
+  --shell-public-soft-ink: #5f6673;
+  --shell-public-line: rgba(215, 219, 224, 0.72);
+  --shell-public-panel: rgba(255, 255, 255, 0.78);
+  --shell-public-panel-strong: rgba(255, 255, 255, 0.9);
+  --shell-public-bg-color: #f7f9fc;
+  --shell-public-bg-image:
+    radial-gradient(circle at top left, rgba(198, 93, 46, 0.18), transparent 30%),
+    radial-gradient(circle at right 20%, rgba(31, 115, 183, 0.2), transparent 24%),
+    linear-gradient(180deg, #f6efe8 0%, #eef3f8 48%, #f7f9fc 100%);
+}
+
+body {
+  margin: 0;
+  font-family:
+    "IBM Plex Sans", "Segoe UI", "PingFang SC", "Hiragino Sans GB",
+    "Microsoft YaHei", sans-serif;
+}
+
+.app-theme-root {
+  min-height: 100vh;
+  min-height: 100dvh;
+  color: var(--shell-ink);
+}
+
+.app-theme-root,
+#root {
+  background-color: var(--viewport-bg-color, var(--app-body-bg-color));
+  background-image: var(--viewport-bg-image, var(--app-body-bg-image));
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.full-width {
+  width: 100%;
+}

@@ -1,0 +1,13 @@
+.git
+.github
+node_modules
+npm-debug.log*
+.env
+.env.*
+!.env.example
+.artifacts
+Taskfile.yml
+dist
+tmp
+.playwright-mcp
+.local
